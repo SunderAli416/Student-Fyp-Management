@@ -94,5 +94,12 @@ namespace DbProjectFinal
             Dashboard dashboard = new Dashboard();
             dashboard.ShowDialog();
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StudentAdd add = new StudentAdd();
+            add.ShowDialog();
+        }
     }
 }

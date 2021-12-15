@@ -42,5 +42,12 @@ namespace DbProjectFinal
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            ((Form)this.TopLevelControl).Hide();
+            ExternalEdit edit = new ExternalEdit(email);
+            edit.ShowDialog();
+        }
     }
 }

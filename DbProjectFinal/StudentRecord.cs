@@ -30,5 +30,12 @@ namespace DbProjectFinal
             sectionLabel.Text = section;
             pidLabel.Text = pid;
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            ((Form)this.TopLevelControl).Hide();
+            StudentEdit edit = new StudentEdit(rollNo);
+            edit.ShowDialog();
+        }
     }
 }

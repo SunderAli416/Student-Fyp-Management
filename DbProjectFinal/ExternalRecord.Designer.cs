@@ -103,6 +103,7 @@ namespace DbProjectFinal
             this.guna2Button1.Size = new System.Drawing.Size(16, 19);
             this.guna2Button1.TabIndex = 45;
             this.guna2Button1.Text = "Add Details";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // companyLabel
             // 
@@ -128,7 +129,7 @@ namespace DbProjectFinal
             // 
             this.phoneLabel.AutoSize = true;
             this.phoneLabel.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneLabel.Location = new System.Drawing.Point(326, 21);
+            this.phoneLabel.Location = new System.Drawing.Point(337, 21);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(134, 19);
             this.phoneLabel.TabIndex = 42;
@@ -138,7 +139,7 @@ namespace DbProjectFinal
             // 
             this.emailLabel.AutoSize = true;
             this.emailLabel.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLabel.Location = new System.Drawing.Point(138, 21);
+            this.emailLabel.Location = new System.Drawing.Point(131, 21);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(69, 19);
             this.emailLabel.TabIndex = 41;
@@ -148,7 +149,7 @@ namespace DbProjectFinal
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(18, 21);
+            this.nameLabel.Location = new System.Drawing.Point(12, 21);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(73, 19);
             this.nameLabel.TabIndex = 40;

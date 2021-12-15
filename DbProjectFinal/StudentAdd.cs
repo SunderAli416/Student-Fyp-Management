@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace DbProjectFinal
 {
@@ -24,7 +25,15 @@ namespace DbProjectFinal
 
         private void Student_Load(object sender, EventArgs e)
         {
-
+            Connection.MakeConnection();
+            string query = "Select * from projects";
+            var cmd = new MySqlCommand(query, Connection.conn);
+            var result = cmd.ExecuteReader();
+            while (result.Read())
+            {
+                chooseButton.Items.Add(result.GetString(0));
+            }
+            Connection.CloseConnection();
         }
 
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
@@ -50,6 +59,26 @@ namespace DbProjectFinal
         private void bunifuTextBox5_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Connection.MakeConnection();
+            string rollNo = rollInput.Text;
+            string fname = fnameInput.Text;
+            string lname = lnameInput.Text;
+            string sectionText = sectionInput.Text;
+            char section = sectionText[0];
+            string pid = chooseButton.Text;
+            var cmd = new MySqlCommand();
+            cmd.Connection = Connection.conn;
+            string query = $"Insert into students values ('{rollNo}','{fname}','{lname}','{section}','{pid}');";
+            cmd.CommandText = query;
+            cmd.ExecuteNonQuery();
+            Connection.CloseConnection();
+            this.Hide();
+            Student students = new Student();
+            students.ShowDialog();
         }
     }
 }

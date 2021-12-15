@@ -59,5 +59,17 @@ namespace DbProjectFinal
             External external = new External();
             external.ShowDialog();
         }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Meeting meeting = new Meeting();
+            meeting.ShowDialog();
+        }
+
+        private void guna2Button7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

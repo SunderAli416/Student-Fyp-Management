@@ -52,5 +52,12 @@ namespace DbProjectFinal
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            ((Form)this.TopLevelControl).Hide();
+            FacultyEdit edit = new FacultyEdit(eid);
+            edit.ShowDialog();
+        }
     }
 }

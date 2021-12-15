@@ -71,7 +71,7 @@ namespace DbProjectFinal
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.DisabledState.Parent = this.guna2Button1;
             this.guna2Button1.FillColor = System.Drawing.Color.Green;
-            this.guna2Button1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold);
             this.guna2Button1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
             this.guna2Button1.Location = new System.Drawing.Point(601, 14);
@@ -80,6 +80,7 @@ namespace DbProjectFinal
             this.guna2Button1.Size = new System.Drawing.Size(16, 19);
             this.guna2Button1.TabIndex = 35;
             this.guna2Button1.Text = "Add Details";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // cosupLabel
             // 

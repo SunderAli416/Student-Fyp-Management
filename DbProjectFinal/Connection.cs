@@ -8,7 +8,7 @@ namespace DbProjectFinal
 {
     public static class Connection
     {
-        public static string myConnectionString = "server=localhost;database=fypmanagement;uid=root;pwd=;";
+        public static string myConnectionString = "server=localhost;database=fypmanagement;uid=root;pwd=;convert zero datetime=True;";
         public static MySqlConnection conn = new MySqlConnection(myConnectionString);
 
         public static void MakeConnection()

@@ -8,19 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+
 namespace DbProjectFinal
 {
-    public partial class Faculty : Form
+    public partial class Meeting : Form
     {
-        public Faculty()
+        public Meeting()
         {
             InitializeComponent();
         }
 
-        private void Faculty_Load(object sender, EventArgs e)
+        private void Meeting_Load(object sender, EventArgs e)
         {
             Connection.MakeConnection();
-            string query = "Select * from faculty;";
+            string query = "Select * from meetings;";
             var cmd = new MySqlCommand(query, Connection.conn);
             MySqlDataReader result = cmd.ExecuteReader();
             int count = 0;
@@ -28,7 +29,7 @@ namespace DbProjectFinal
             {
                 count++;
             }
-            FacultyRecord[] faculty = new FacultyRecord[count];
+            MeetingRecord[] meeting = new MeetingRecord[count];
             int i = 0;
             Connection.CloseConnection();
             Connection.MakeConnection();
@@ -36,10 +37,10 @@ namespace DbProjectFinal
             result = cmd.ExecuteReader();
             while (result.Read())
             {
+                string mystr = result.GetValue(1).ToString();
+                meeting[i] = new MeetingRecord(result.GetString(0), result.GetValue(1).ToString().Substring(0,mystr.IndexOf(' ')), result.GetString(2), result.GetString(3), result.GetString(4), result.GetString(5), result.GetString(6));
 
-                faculty[i] = new FacultyRecord(result.GetString(0), result.GetString(1), result.GetString(2), result.GetString(3), result.GetString(4), result.GetString(5), result.GetString(6), result.GetString(7));
-
-                flowLayoutPanel1.Controls.Add(faculty[i]);
+                flowLayoutPanel1.Controls.Add(meeting[i]);
                 i++;
             }
             Connection.CloseConnection();
@@ -55,7 +56,7 @@ namespace DbProjectFinal
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FacultyAdd add = new FacultyAdd();
+            MeetingAdd add = new MeetingAdd();
             add.ShowDialog();
         }
     }

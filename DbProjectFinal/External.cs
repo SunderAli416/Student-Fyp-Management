@@ -51,5 +51,12 @@ namespace DbProjectFinal
             Dashboard dashboard = new Dashboard();
             dashboard.ShowDialog();
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ExternalAdd add = new ExternalAdd();
+            add.ShowDialog();
+        }
     }
 }
