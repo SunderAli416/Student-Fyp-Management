@@ -63,6 +63,7 @@ namespace DbProjectFinal
             this.guna2Button1.Size = new System.Drawing.Size(403, 38);
             this.guna2Button1.TabIndex = 0;
             this.guna2Button1.Text = "Students";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2
             // 
@@ -85,6 +86,7 @@ namespace DbProjectFinal
             this.guna2Button2.Size = new System.Drawing.Size(403, 38);
             this.guna2Button2.TabIndex = 1;
             this.guna2Button2.Text = "Faculty";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button3
             // 
@@ -107,6 +109,7 @@ namespace DbProjectFinal
             this.guna2Button3.Size = new System.Drawing.Size(403, 38);
             this.guna2Button3.TabIndex = 2;
             this.guna2Button3.Text = "Projects";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // guna2Button4
             // 
@@ -129,6 +132,7 @@ namespace DbProjectFinal
             this.guna2Button4.Size = new System.Drawing.Size(403, 38);
             this.guna2Button4.TabIndex = 3;
             this.guna2Button4.Text = "External Jury";
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
             // guna2Button5
             // 
@@ -202,9 +206,9 @@ namespace DbProjectFinal
             this.label1.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(216, 145);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 60);
+            this.label1.Size = new System.Drawing.Size(258, 60);
             this.label1.TabIndex = 7;
-            this.label1.Text = "ADMIN PANEL";
+            this.label1.Text = "DASHBOARD";
             // 
             // bunifuImageButton1
             // 

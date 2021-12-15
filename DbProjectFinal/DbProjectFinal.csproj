@@ -138,6 +138,8 @@
     <Reference Include="Guna.UI2, Version=2.0.2.5, Culture=neutral, PublicKeyToken=e4b9cdd7b4cde4b4, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.2.5\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Web, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -151,34 +153,89 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connection.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="External.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="External.Designer.cs">
+      <DependentUpon>External.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExternalRecord.Designer.cs">
+      <DependentUpon>ExternalRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Faculty.Designer.cs">
+      <DependentUpon>Faculty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacultyRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FacultyRecord.Designer.cs">
+      <DependentUpon>FacultyRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs">
+    <Compile Include="Project.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student.Designer.cs">
-      <DependentUpon>Student.cs</DependentUpon>
+    <Compile Include="Project.Designer.cs">
+      <DependentUpon>Project.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProjectRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProjectRecord.Designer.cs">
+      <DependentUpon>ProjectRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentAdd.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StudentAdd.Designer.cs">
       <DependentUpon>StudentAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student.Designer.cs">
+      <DependentUpon>Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentRecord.Designer.cs">
+      <DependentUpon>StudentRecord.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External.resx">
+      <DependentUpon>External.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExternalRecord.resx">
+      <DependentUpon>ExternalRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faculty.resx">
+      <DependentUpon>Faculty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacultyRecord.resx">
+      <DependentUpon>FacultyRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project.resx">
+      <DependentUpon>Project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectRecord.resx">
+      <DependentUpon>ProjectRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -190,11 +247,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StudentAdd.resx">
+      <DependentUpon>StudentAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student.resx">
       <DependentUpon>Student.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentAdd.resx">
-      <DependentUpon>StudentAdd.cs</DependentUpon>
+    <EmbeddedResource Include="StudentRecord.resx">
+      <DependentUpon>StudentRecord.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

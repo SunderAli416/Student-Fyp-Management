@@ -17,42 +17,37 @@ namespace DbProjectFinal
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void Student_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void bunifuTextBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
+        private void bunifuTextBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void StudentAdd_Load(object sender, EventArgs e)
+        private void bunifuTextBox3_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textBox10_TextChanged(object sender, EventArgs e)
+        private void bunifuTextBox5_TextChanged(object sender, EventArgs e)
         {
 
         }

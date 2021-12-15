@@ -31,5 +31,33 @@ namespace DbProjectFinal
         {
             Application.Exit();
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Student student = new Student();
+            student.ShowDialog();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Faculty faculty = new Faculty();
+            faculty.ShowDialog();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Project project = new Project();
+            project.ShowDialog();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            External external = new External();
+            external.ShowDialog();
+        }
     }
 }
