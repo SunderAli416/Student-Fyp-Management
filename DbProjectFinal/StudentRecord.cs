@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 namespace DbProjectFinal
 {
     public partial class StudentRecord : UserControl
@@ -17,6 +17,16 @@ namespace DbProjectFinal
         public string lname;
         public string section;
         public string pid;
+        public StudentRecord(string roll,string fn,string ln,string sec,string pid)
+        {
+            this.rollNo = roll;
+            this.fname = fn;
+            this.lname = ln;
+            this.section = sec;
+            this.pid = pid;
+            InitializeComponent();
+        }
+
         public StudentRecord()
         {
             InitializeComponent();
@@ -36,6 +46,33 @@ namespace DbProjectFinal
             ((Form)this.TopLevelControl).Hide();
             StudentEdit edit = new StudentEdit(rollNo);
             edit.ShowDialog();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            Connection.MakeConnection();
+            string query = $"select * from grade where roll_no='{rollNo}';";
+            var cmd = new MySqlCommand(query, Connection.conn);
+            MySqlDataReader result = cmd.ExecuteReader();
+            int i = 0;
+            while (result.Read())
+            {
+                i++;
+            }
+            Connection.CloseConnection();
+            if (i == 0)
+            {
+                ((Form)this.TopLevelControl).Hide();
+                GradeAdd add = new GradeAdd(rollNo);
+                add.ShowDialog();
+            }
+            else
+            {
+                ((Form)this.TopLevelControl).Hide();
+                GradeEdit edit = new GradeEdit(rollNo);
+                edit.ShowDialog();
+            }
+            Connection.CloseConnection();
         }
     }
 }

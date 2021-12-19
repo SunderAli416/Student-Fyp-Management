@@ -152,6 +152,7 @@ namespace DbProjectFinal
             this.guna2Button3.Size = new System.Drawing.Size(64, 19);
             this.guna2Button3.TabIndex = 29;
             this.guna2Button3.Text = "Grade";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // StudentRecord
             // 

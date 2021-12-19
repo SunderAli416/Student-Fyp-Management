@@ -133,7 +133,7 @@ namespace DbProjectFinal
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.pidLabel);
             this.Name = "ProjectRecord";
-            this.Size = new System.Drawing.Size(685, 47);
+            this.Size = new System.Drawing.Size(664, 47);
             this.Load += new System.EventHandler(this.ProjectRecord_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

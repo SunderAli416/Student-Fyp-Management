@@ -71,5 +71,12 @@ namespace DbProjectFinal
         {
 
         }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            Jury jury = new Jury();
+            this.Hide();
+            jury.ShowDialog();
+        }
     }
 }

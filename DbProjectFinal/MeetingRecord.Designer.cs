@@ -39,6 +39,7 @@ namespace DbProjectFinal
             this.dateLabel = new System.Windows.Forms.Label();
             this.midLabel = new System.Windows.Forms.Label();
             this.eidLabel = new System.Windows.Forms.Label();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // juryidLabel
@@ -167,10 +168,31 @@ namespace DbProjectFinal
             this.eidLabel.TabIndex = 40;
             this.eidLabel.Text = "Amman ";
             // 
+            // guna2Button3
+            // 
+            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
+            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.DisabledState.Parent = this.guna2Button3;
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.HoverState.Parent = this.guna2Button3;
+            this.guna2Button3.Location = new System.Drawing.Point(1028, 25);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
+            this.guna2Button3.Size = new System.Drawing.Size(81, 19);
+            this.guna2Button3.TabIndex = 50;
+            this.guna2Button3.Text = "Feedback";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            // 
             // MeetingRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.juryidLabel);
             this.Controls.Add(this.pidLabel);
             this.Controls.Add(this.venueLabel);
@@ -182,7 +204,7 @@ namespace DbProjectFinal
             this.Controls.Add(this.midLabel);
             this.Controls.Add(this.eidLabel);
             this.Name = "MeetingRecord";
-            this.Size = new System.Drawing.Size(1077, 68);
+            this.Size = new System.Drawing.Size(1121, 68);
             this.Load += new System.EventHandler(this.MeetingRecord_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -201,5 +223,6 @@ namespace DbProjectFinal
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label midLabel;
         private System.Windows.Forms.Label eidLabel;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }

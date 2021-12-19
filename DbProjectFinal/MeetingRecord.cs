@@ -7,12 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 namespace DbProjectFinal
 {
     public partial class MeetingRecord : UserControl
     {
         string mid, date, start, end, venue, pid, juryid;
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            ((Form)this.TopLevelControl).Hide();
+            Connection.MakeConnection();
+            string query = $"select * from feed_back where pid='{pid}' and meeting_id='{mid}';";
+            var cmd = new MySqlCommand(query, Connection.conn);
+            MySqlDataReader result = cmd.ExecuteReader();
+            int count = 0;
+            while (result.Read())
+            {
+                count++;
+            }
+            if (count == 0)
+            {
+                Connection.CloseConnection();
+                FeedbackAdd feedback = new FeedbackAdd(pid, mid);
+                feedback.ShowDialog();
+            }
+            else
+            {
+                Connection.CloseConnection();
+                FeedbackEdit feedback = new FeedbackEdit(pid, mid);
+                feedback.ShowDialog();
+            }
+        }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {

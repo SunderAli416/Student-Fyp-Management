@@ -101,5 +101,44 @@ namespace DbProjectFinal
             StudentAdd add = new StudentAdd();
             add.ShowDialog();
         }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            if (searchInput.Text == "")
+            {
+                MessageBox.Show("Please Enter A Roll No");
+            }
+            else
+            {
+                Connection.MakeConnection();
+                string query = $"select * from students where roll_no='{searchInput.Text}';";
+                var cmd = new MySqlCommand(query, Connection.conn);
+                MySqlDataReader result = cmd.ExecuteReader();
+                StudentRecord studentRecord;
+                if (result.HasRows)
+                {
+                    flowLayoutPanel1.Controls.Clear();
+                    while (result.Read())
+                    {
+                        studentRecord = new StudentRecord(result.GetString(0), result.GetString(1), result.GetString(2), result.GetString(3), result.GetString(4));
+                        flowLayoutPanel1.Controls.Add(studentRecord);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No record with that roll number found");
+                }
+                
+
+                Connection.CloseConnection();
+            }
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Student student = new Student();
+            student.ShowDialog();
+        }
     }
 }

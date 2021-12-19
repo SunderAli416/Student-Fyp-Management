@@ -60,5 +60,42 @@ namespace DbProjectFinal
             ProjectAdd add = new ProjectAdd();
             add.ShowDialog();
         }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            if (searchInput.Text == "")
+            {
+                MessageBox.Show("Please Enter A Project Id");
+            }
+            else
+            {
+                Connection.MakeConnection();
+                string query = $"select * from projects where pid='{searchInput.Text}';";
+                var cmd = new MySqlCommand(query, Connection.conn);
+                MySqlDataReader result = cmd.ExecuteReader();
+                ProjectRecord project;
+                if (result.HasRows)
+                {
+                    flowLayoutPanel1.Controls.Clear();
+                    while (result.Read())
+                    {
+                        project = new ProjectRecord(result.GetString(0), result.GetString(1), result.GetString(2), result.GetString(3));
+                        flowLayoutPanel1.Controls.Add(project);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No projects with that project id exist");
+                }
+                Connection.CloseConnection();
+            }
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Project project = new Project();
+            project.ShowDialog();
+        }
     }
 }

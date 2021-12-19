@@ -59,5 +59,43 @@ namespace DbProjectFinal
             MeetingAdd add = new MeetingAdd();
             add.ShowDialog();
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Meeting meeting = new Meeting();
+            meeting.ShowDialog();
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            if (searchInput.Text == "")
+            {
+                MessageBox.Show("Please Enter A Meeting Id");
+            }
+            else
+            {
+                Connection.MakeConnection();
+                string query = $"select * from meetings where meeting_id='{searchInput.Text}';";
+                var cmd = new MySqlCommand(query, Connection.conn);
+                MySqlDataReader result = cmd.ExecuteReader();
+                MeetingRecord meeting;
+                if (result.HasRows)
+                {
+                    flowLayoutPanel1.Controls.Clear();
+                    while (result.Read())
+                    {
+                        string mystr = result.GetValue(1).ToString();
+                        meeting = new MeetingRecord(result.GetString(0), result.GetValue(1).ToString().Substring(0, mystr.IndexOf(' ')), result.GetString(2), result.GetString(3), result.GetString(4), result.GetString(5), result.GetString(6));
+                        flowLayoutPanel1.Controls.Add(meeting);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No meetings with that meeting id exist");
+                }
+                Connection.CloseConnection();
+            }
+        }
     }
 }

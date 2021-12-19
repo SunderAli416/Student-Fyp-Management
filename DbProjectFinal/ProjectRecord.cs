@@ -43,5 +43,10 @@ namespace DbProjectFinal
             ProjectEdit edit = new ProjectEdit(pid);
             edit.ShowDialog();
         }
+
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

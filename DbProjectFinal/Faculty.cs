@@ -58,5 +58,42 @@ namespace DbProjectFinal
             FacultyAdd add = new FacultyAdd();
             add.ShowDialog();
         }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            if (searchInput.Text == "")
+            {
+                MessageBox.Show("Please Enter An Employee Id");
+            }
+            else
+            {
+                Connection.MakeConnection();
+                string query = $"select * from faculty where e_id='{searchInput.Text}';";
+                var cmd = new MySqlCommand(query, Connection.conn);
+                MySqlDataReader result = cmd.ExecuteReader();
+                FacultyRecord faculty;
+                if (result.HasRows)
+                {
+                    flowLayoutPanel1.Controls.Clear();
+                    while (result.Read())
+                    {
+                        faculty = new FacultyRecord(result.GetString(0), result.GetString(1), result.GetString(2), result.GetString(3), result.GetString(4), result.GetString(5), result.GetString(6), result.GetString(7));
+                        flowLayoutPanel1.Controls.Add(faculty);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No faculty with that id exist");
+                }
+                Connection.CloseConnection();
+            }
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Faculty faculty = new Faculty();
+            faculty.ShowDialog();
+        }
     }
 }

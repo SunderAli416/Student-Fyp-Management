@@ -208,6 +208,54 @@
     <Compile Include="FacultyRecord.Designer.cs">
       <DependentUpon>FacultyRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="FeedbackAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedbackAdd.Designer.cs">
+      <DependentUpon>FeedbackAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbackEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedbackEdit.Designer.cs">
+      <DependentUpon>FeedbackEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GradeAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GradeAdd.Designer.cs">
+      <DependentUpon>GradeAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GradeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GradeEdit.Designer.cs">
+      <DependentUpon>GradeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jury.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jury.Designer.cs">
+      <DependentUpon>Jury.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JuryAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JuryAdd.Designer.cs">
+      <DependentUpon>JuryAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JuryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JuryEdit.Designer.cs">
+      <DependentUpon>JuryEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JuryRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JuryRecord.Designer.cs">
+      <DependentUpon>JuryRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="Meeting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +356,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FacultyRecord.resx">
       <DependentUpon>FacultyRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedbackAdd.resx">
+      <DependentUpon>FeedbackAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedbackEdit.resx">
+      <DependentUpon>FeedbackEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GradeAdd.resx">
+      <DependentUpon>GradeAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GradeEdit.resx">
+      <DependentUpon>GradeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jury.resx">
+      <DependentUpon>Jury.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JuryAdd.resx">
+      <DependentUpon>JuryAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JuryEdit.resx">
+      <DependentUpon>JuryEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JuryRecord.resx">
+      <DependentUpon>JuryRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Meeting.resx">
       <DependentUpon>Meeting.cs</DependentUpon>
