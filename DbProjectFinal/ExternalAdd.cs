@@ -27,17 +27,33 @@ namespace DbProjectFinal
             string phone = phoneInput.Text;
             string address = addressInput.Text;
             string company = companyInput.Text;
-            int semester = int.Parse(semesterInput.Text);
+            string semester = semesterInput.Text;
             string account = accountInput.Text;
-            string query = $"insert into externals values ('{name}','{email}','{phone}','{address}','{company}',{semester},'{account}');";
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
-            this.Hide();
-            External external = new External();
-            external.ShowDialog();
+            if (validate(name, email, phone, address, company, semester, account))
+            {
+                string query = $"insert into externals values ('{name}','{email}','{phone}','{address}','{company}','{semester}','{account}');";
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+                this.Hide();
+                External external = new External();
+                external.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Make sure to fill all details");
+            }
+            
 
 
             Connection.CloseConnection();
+        }
+        bool validate(string name,string email,string phone,string address,string company,string semester,string account)
+        {
+            if(name=="" || email=="" || phone=="" || address=="" || company=="" || semester=="" || account == "")
+            {
+                return false;
+            }
+            return true;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

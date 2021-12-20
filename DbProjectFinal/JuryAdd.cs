@@ -91,53 +91,73 @@ namespace DbProjectFinal
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            string fac1 = fac1Button.Text;
-            fac1 = fac1.Substring(0, fac1.IndexOf(' '));
-            string fac2 = fac2Button.Text;
-            if (fac2 == "None"){
-                fac2 = "NULL";
-            }
-            else{
-                fac2 = "'" + fac2.Substring(0, fac2.IndexOf(' ')) + "'";
-            }
-            string fac3 = fac3Button.Text;
-            if (fac3 == "None")
+            if (validate(fac1Button.Text, fac2Button.Text, fac3Button.Text, ext1Button.Text, ext2Button.Text))
             {
-                fac3 = "NULL";
+                string fac1 = fac1Button.Text;
+                fac1 = fac1.Substring(0, fac1.IndexOf(' '));
+                string fac2 = fac2Button.Text;
+                if (fac2 == "None")
+                {
+                    fac2 = "NULL";
+                }
+                else
+                {
+                    fac2 = "'" + fac2.Substring(0, fac2.IndexOf(' ')) + "'";
+                }
+                string fac3 = fac3Button.Text;
+                if (fac3 == "None")
+                {
+                    fac3 = "NULL";
+                }
+                else
+                {
+                    fac3 = "'" + fac3.Substring(0, fac3.IndexOf(' ')) + "'";
+                }
+                string ext1 = ext1Button.Text;
+                if (ext1 == "None")
+                {
+                    ext1 = "NULL";
+                }
+                else
+                {
+                    ext1 = "'" + ext1.Substring(0, ext1.IndexOf(' ')) + "'";
+                }
+                string ext2 = ext2Button.Text;
+                if (ext2 == "None")
+                {
+                    ext2 = "NULL";
+                }
+                else
+                {
+                    ext2 = "'" + ext2.Substring(0, ext2.IndexOf(' ')) + "'";
+                }
+                Connection.MakeConnection();
+                string query = $"insert into jury (fc_1,fc_2,fc_3,ex_1,ex_2) values ('{fac1}',{fac2},{fac3},{ext1},{ext2});";
+                var cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = Connection.conn;
+                cmd.ExecuteNonQuery();
+
+                Connection.CloseConnection();
+                this.Hide();
+                Jury jury = new Jury();
+                jury.ShowDialog();
             }
             else
             {
-                fac3 = "'" + fac3.Substring(0, fac3.IndexOf(' ')) + "'";
+                MessageBox.Show("Make Sure to select all options..Choose None for default");
             }
-            string ext1 = ext1Button.Text;
-            if (ext1 == "None")
-            {
-                ext1 = "NULL";
-            }
-            else
-            {
-                ext1 = "'" + ext1.Substring(0, ext1.IndexOf(' ')) + "'";
-            }
-            string ext2 = ext2Button.Text;
-            if (ext2 == "None")
-            {
-                ext2 = "NULL";
-            }
-            else
-            {
-                ext2 = "'" + ext2.Substring(0, ext2.IndexOf(' ')) + "'";
-            }
-            Connection.MakeConnection();
-            string query = $"insert into jury (fc_1,fc_2,fc_3,ex_1,ex_2) values ('{fac1}',{fac2},{fac3},{ext1},{ext2});";
-            var cmd = new MySqlCommand();
-            cmd.CommandText = query;
-            cmd.Connection = Connection.conn;
-            cmd.ExecuteNonQuery();
             
-            Connection.CloseConnection();
-            this.Hide();
-            Jury jury = new Jury();
-            jury.ShowDialog();
+        }
+
+        bool validate(string fac1,string fac2,string fac3,string ext1,string ext2)
+        {
+            if(fac1=="Faculty 1" || fac2=="Faculty 2" || fac3=="Faculty 3" || ext1=="External 1" || ext2=="External 2")
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

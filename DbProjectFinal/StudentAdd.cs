@@ -63,6 +63,7 @@ namespace DbProjectFinal
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            
             Connection.MakeConnection();
             string rollNo = rollInput.Text;
             string fname = fnameInput.Text;
@@ -70,15 +71,33 @@ namespace DbProjectFinal
             string sectionText = sectionInput.Text;
             char section = sectionText[0];
             string pid = chooseButton.Text;
-            var cmd = new MySqlCommand();
-            cmd.Connection = Connection.conn;
-            string query = $"Insert into students values ('{rollNo}','{fname}','{lname}','{section}','{pid}');";
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
-            Connection.CloseConnection();
-            this.Hide();
-            Student students = new Student();
-            students.ShowDialog();
+            if (validate(rollNo, fname, lname, sectionText, chooseButton.Text))
+            {
+                var cmd = new MySqlCommand();
+                cmd.Connection = Connection.conn;
+                string query = $"Insert into students values ('{rollNo}','{fname}','{lname}','{section}','{pid}');";
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+                Connection.CloseConnection();
+                this.Hide();
+                Student students = new Student();
+                students.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Make Sure to fill all details");
+            }
+            
+        }
+
+        bool validate(string roll,string fname,string lname,string section,string pid)
+        {
+            if(roll=="" || fname=="" || lname=="" || section=="" || pid=="Choose Project")
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

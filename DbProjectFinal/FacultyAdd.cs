@@ -31,14 +31,32 @@ namespace DbProjectFinal
             string status = statusInput.Text;
             var cmd = new MySqlCommand();
             cmd.Connection = Connection.conn;
-            string query = $"INSERT into faculty values ('{eid}','{email}','{code}','{title}','{fname}','{lname}','{designation}','{status}');";
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
+            if (validate(eid, email, code, title, fname, lname, designation, status)){
+                string query = $"INSERT into faculty values ('{eid}','{email}','{code}','{title}','{fname}','{lname}','{designation}','{status}');";
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
 
-            Connection.CloseConnection();
-            this.Hide();
-            Faculty faculty = new Faculty();
-            faculty.ShowDialog();
+                Connection.CloseConnection();
+                this.Hide();
+                Faculty faculty = new Faculty();
+                faculty.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Make sure to fill all details");
+                Connection.CloseConnection();
+            }
+            
+        }
+
+        bool validate(string eid,string email,string code,string title,string fname,string lname,string designation,string status)
+        {
+            if(eid=="" || email=="" || code=="" || title=="" || fname=="" || lname=="" || designation=="" || status == "")
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

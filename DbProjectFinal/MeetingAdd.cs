@@ -64,26 +64,44 @@ namespace DbProjectFinal
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Connection.MakeConnection();
-            string pid = projectButton.Text;
-            int ind1 = pid.IndexOf(' ');
-            string pid1 = pid.Substring(0, ind1);
-            string jid = juryButton.Text;
-            int ind2 = jid.IndexOf(' ');
-            string jid2 = jid.Substring(0, ind2);
-            string date = datePicker.Value.ToString("yyyy-MM-dd");
-            string start = startTime.Text;
-            string end = endTime.Text;
-            string venue = venueInput.Text;
-            string query = $"INSERT INTO meetings (eval_date,start_time,end_time,venue,pid,jury_id) values ('{date}','{start}','{end}','{venue}','{pid1}',{jid2});";
-            var cmd = new MySqlCommand();
-            cmd.Connection = Connection.conn;
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
-            Connection.CloseConnection();
-            this.Hide();
-            Meeting meeting = new Meeting();
-            meeting.ShowDialog();
+            if (validate(venueInput.Text, juryButton.Text, projectButton.Text))
+            {
+                Connection.MakeConnection();
+                string pid = projectButton.Text;
+                int ind1 = pid.IndexOf(' ');
+                string pid1 = pid.Substring(0, ind1);
+                string jid = juryButton.Text;
+                int ind2 = jid.IndexOf(' ');
+                string jid2 = jid.Substring(0, ind2);
+                string date = datePicker.Value.ToString("yyyy-MM-dd");
+                string start = startTime.Text;
+                string end = endTime.Text;
+                string venue = venueInput.Text;
+                string query = $"INSERT INTO meetings (eval_date,start_time,end_time,venue,pid,jury_id) values ('{date}','{start}','{end}','{venue}','{pid1}',{jid2});";
+                var cmd = new MySqlCommand();
+                cmd.Connection = Connection.conn;
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+                Connection.CloseConnection();
+                this.Hide();
+                Meeting meeting = new Meeting();
+                meeting.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Make sure to fill all details");
+            }
+            
+        }
+
+        bool validate(string venue,string jid,string pid)
+        {
+            if(venue=="" || jid=="Choose Jury" || pid == "Choose Project")
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

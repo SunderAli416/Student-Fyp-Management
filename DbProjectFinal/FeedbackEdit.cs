@@ -42,17 +42,35 @@ namespace DbProjectFinal
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            Connection.MakeConnection();
-            string query = $"update feed_back set introduction='{introInput.Text}',methodology='{methodologyInput.Text}',planning='{planningInput.Text}',system_diagram='{systemInput.Text}',comments='{commentInput.Text}',status='{statusInput.Text}',features='{featureInput.Text}' where pid='{pid}' and meeting_id='{mid}';";
-            var cmd = new MySqlCommand();
-            cmd.CommandText = query;
-            cmd.Connection = Connection.conn;
-            cmd.ExecuteNonQuery();
-            Connection.CloseConnection();
-            this.Hide();
-            Meeting meeting = new Meeting();
-            meeting.ShowDialog();
+            if (validate(introInput.Text,featureInput.Text, methodologyInput.Text, planningInput.Text, systemInput.Text, commentInput.Text, statusInput.Text))
+            {
+                Connection.MakeConnection();
+                string query = $"update feed_back set introduction='{introInput.Text}',methodology='{methodologyInput.Text}',planning='{planningInput.Text}',system_diagram='{systemInput.Text}',comments='{commentInput.Text}',status='{statusInput.Text}',features='{featureInput.Text}' where pid='{pid}' and meeting_id='{mid}';";
+                var cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = Connection.conn;
+                cmd.ExecuteNonQuery();
+                Connection.CloseConnection();
+                this.Hide();
+                Meeting meeting = new Meeting();
+                meeting.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Make Sure To Fill All details");
+            }
             
+            
+        }
+
+        bool validate(string intro, string features, string method, string plan, string system, string comment, string status)
+        {
+            if (intro == "" || features == "" || method == "" || plan == "" || system == "" || comment == "" || status == "")
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

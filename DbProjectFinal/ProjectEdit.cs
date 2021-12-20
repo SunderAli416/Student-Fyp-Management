@@ -64,23 +64,67 @@ namespace DbProjectFinal
             string title1 = titleInput.Text;
             string semester1 = semesterInput.Text;
             string cosup1 = cosupInput.Text;
+            if (validate(pid1, title1, semester1, cosup1, chooseButton.Text))
+            {
+                if (validateSupervisor(chooseButton.Text))
+                {
+                    Connection.MakeConnection();
+                    var cmd = new MySqlCommand();
+                    cmd.Connection = Connection.conn;
+                    string query = $"update projects set pid='{pid1}',title='{title1}',semester='{semester1}',cosupervisor='{cosup1}' where pid='{pid}';";
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                    Connection.CloseConnection();
+                    Connection.MakeConnection();
+                    string supervisor = chooseButton.Text;
+                    query = $"update supervisor set s_id='{supervisor}' where pid='{pid}'";
+                    cmd.Connection = Connection.conn;
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                    Connection.CloseConnection();
+                    this.Hide();
+                    Project project = new Project();
+                    project.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("This supervisor already has maximum number of projects");
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Make Sure to fill all details");
+            }
+            
+        }
+
+        bool validateSupervisor(string sid)
+        {
             Connection.MakeConnection();
-            var cmd = new MySqlCommand();
-            cmd.Connection = Connection.conn;
-            string query = $"update projects set pid='{pid1}',title='{title1}',semester='{semester1}',cosupervisor='{cosup1}' where pid='{pid}';";
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
+            string query = $"select * from supervisor where s_id='{sid}';";
+            var cmd = new MySqlCommand(query, Connection.conn);
+            MySqlDataReader result = cmd.ExecuteReader();
+            int i = 0;
+            while (result.Read())
+            {
+                i++;
+            }
             Connection.CloseConnection();
-            Connection.MakeConnection();
-            string supervisor = chooseButton.Text;
-            query = $"update supervisor set s_id='{supervisor}' where pid='{pid}'";
-            cmd.Connection = Connection.conn;
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
-            Connection.CloseConnection();
-            this.Hide();
-            Project project = new Project();
-            project.ShowDialog();
+            if (i >= 6)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        bool validate(string pid, string title, string semester, string cosup, string sid)
+        {
+            if (pid == "" || title == "" || semester == "" || cosup == "" || sid == "Choose Supervisor")
+            {
+                return false;
+            }
+            return true;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

@@ -72,17 +72,35 @@ namespace DbProjectFinal
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            Connection.MakeConnection();
-            string query = $"Update grade set fyp_1_mid={grade1Input.Text},fyp_1_final={grade2Input.Text},fyp_2_mid={grade3Input.Text},fyp_2_final={grade4Input.Text} where roll_no='{roll}';";
-            var cmd = new MySqlCommand();
-            cmd.CommandText = query;
-            cmd.Connection = Connection.conn;
-            cmd.ExecuteNonQuery();
+            if (validate(grade1Input.Text, grade2Input.Text, grade3Input.Text, grade4Input.Text))
+            {
+                Connection.MakeConnection();
+                string query = $"Update grade set fyp_1_mid={grade1Input.Text},fyp_1_final={grade2Input.Text},fyp_2_mid={grade3Input.Text},fyp_2_final={grade4Input.Text} where roll_no='{roll}';";
+                var cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = Connection.conn;
+                cmd.ExecuteNonQuery();
+
+                Connection.CloseConnection();
+                this.Hide();
+                Student student = new Student();
+                student.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Make sure to fill all details..Leave 0 for default value");
+            }
             
-            Connection.CloseConnection();
-            this.Hide();
-            Student student = new Student();
-            student.ShowDialog();
+        }
+
+        bool validate(string grade1, string grade2, string grade3, string grade4)
+        {
+            if (grade1 == "" || grade2 == "" || grade3 == "" || grade4 == "")
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

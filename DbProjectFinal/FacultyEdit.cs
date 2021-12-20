@@ -52,15 +52,34 @@ namespace DbProjectFinal
             string lname=lnameInput.Text;
             string designation=designationInput.Text;
             string status=statusInput.Text;
-            string query = $"update faculty set e_id='{eid1}',email='{email}',code='{code}',title='{title}',f_name='{fname}',l_name='{lname}',designation='{designation}',status='{status}' where e_id='{eid}';";
-            var cmd = new MySqlCommand();
-            cmd.Connection = Connection.conn;
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
-            this.Hide();
-            Faculty faculty = new Faculty();
-            faculty.ShowDialog();
-            Connection.CloseConnection();
+            if (validate(eid1, email, code, title, fname, lname, designation, status))
+            {
+                string query = $"update faculty set e_id='{eid1}',email='{email}',code='{code}',title='{title}',f_name='{fname}',l_name='{lname}',designation='{designation}',status='{status}' where e_id='{eid}';";
+                var cmd = new MySqlCommand();
+                cmd.Connection = Connection.conn;
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+                this.Hide();
+                Faculty faculty = new Faculty();
+                faculty.ShowDialog();
+                Connection.CloseConnection();
+            }
+            else
+            {
+                MessageBox.Show("Make sure to fill all details");
+                Connection.CloseConnection();
+            }
+           
+        }
+
+        bool validate(string eid, string email, string code, string title, string fname, string lname, string designation, string status)
+        {
+            if (eid == "" || email == "" || code == "" || title == "" || fname == "" || lname == "" || designation == "" || status == "")
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)

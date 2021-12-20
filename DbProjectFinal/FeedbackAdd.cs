@@ -43,14 +43,33 @@ namespace DbProjectFinal
             string comment = commentInput.Text;
             string status = statusInput.Text;
             var cmd = new MySqlCommand();
-            string query = $"insert into feed_back (pid,introduction,features,methodology,planning,system_diagram,comments,status,meeting_id) values ('{pid}','{intro}','{features}','{methodology}','{planning}','{system}','{comment}','{status}','{mid}');";
-            cmd.Connection = Connection.conn;
-            cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
-            Connection.CloseConnection();
-            this.Hide();
-            Meeting meeting = new Meeting();
-            meeting.ShowDialog();
+            if (validate(intro, features, methodology, planning, system, comment, status))
+            {
+                string query = $"insert into feed_back (pid,introduction,features,methodology,planning,system_diagram,comments,status,meeting_id) values ('{pid}','{intro}','{features}','{methodology}','{planning}','{system}','{comment}','{status}','{mid}');";
+                cmd.Connection = Connection.conn;
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+                Connection.CloseConnection();
+                this.Hide();
+                Meeting meeting = new Meeting();
+                meeting.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Make Sure to Fill All details");
+                Connection.CloseConnection();
+            }
+            
+        }
+
+        bool validate(string intro,string features,string method,string plan,string system,string comment,string status)
+        {
+            if(intro=="" || features=="" || method=="" || plan=="" || system=="" || comment=="" || status == "")
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

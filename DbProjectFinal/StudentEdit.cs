@@ -54,16 +54,34 @@ namespace DbProjectFinal
             string lname = lnameInput.Text;
             string section = sectionInput.Text;
             string pid = chooseButton.Text;
-            string query = $"UPDATE students set roll_no='{rollNo}',f_name='{fname}',l_name='{lname}',section='{section}',pid='{pid}' where roll_no='{roll}';";
-            Connection.MakeConnection();
-            var cmd = new MySqlCommand();
-            cmd.CommandText = query;
-            cmd.Connection = Connection.conn;
-            cmd.ExecuteNonQuery();
-            this.Hide();
-            Student student = new Student();
-            student.ShowDialog();
-            Connection.CloseConnection();
+            if (validate(rollNo, fname, lname, section, pid))
+            {
+                string query = $"UPDATE students set roll_no='{rollNo}',f_name='{fname}',l_name='{lname}',section='{section}',pid='{pid}' where roll_no='{roll}';";
+                Connection.MakeConnection();
+                var cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = Connection.conn;
+                cmd.ExecuteNonQuery();
+                this.Hide();
+                Student student = new Student();
+                student.ShowDialog();
+                Connection.CloseConnection();
+            }
+            else
+            {
+                MessageBox.Show("Make Sure to fill details");
+            }
+            
+        }
+
+        bool validate(string roll, string fname, string lname, string section, string pid)
+        {
+            if (roll == "" || fname == "" || lname == "" || section == "" || pid == "Choose Project")
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
