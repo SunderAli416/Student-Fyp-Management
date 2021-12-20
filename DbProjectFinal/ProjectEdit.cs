@@ -89,6 +89,7 @@ namespace DbProjectFinal
                 else
                 {
                     MessageBox.Show("This supervisor already has maximum number of projects");
+                    Console.WriteLine("e");
                 }
                 
             }
