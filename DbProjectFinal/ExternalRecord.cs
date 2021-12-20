@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 namespace DbProjectFinal
 {
     public partial class ExternalRecord : UserControl
@@ -48,6 +48,21 @@ namespace DbProjectFinal
             ((Form)this.TopLevelControl).Hide();
             ExternalEdit edit = new ExternalEdit(email);
             edit.ShowDialog();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Connection.MakeConnection();
+            string query = $"delete from externals where email='{email}'";
+            var cmd = new MySqlCommand();
+            cmd.CommandText = query;
+            cmd.Connection = Connection.conn;
+            cmd.ExecuteNonQuery();
+            ((Form)this.TopLevelControl).Hide();
+            External student = new External();
+            student.ShowDialog();
+
+            Connection.CloseConnection();
         }
     }
 }

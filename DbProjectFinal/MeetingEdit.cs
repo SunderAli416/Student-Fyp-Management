@@ -101,5 +101,12 @@ namespace DbProjectFinal
             Meeting meeting = new Meeting();
             meeting.ShowDialog();
         }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Meeting form = new Meeting();
+            form.ShowDialog();
+        }
     }
 }

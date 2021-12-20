@@ -40,5 +40,12 @@ namespace DbProjectFinal
             Faculty faculty = new Faculty();
             faculty.ShowDialog();
         }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Faculty form = new Faculty();
+            form.ShowDialog();
+        }
     }
 }

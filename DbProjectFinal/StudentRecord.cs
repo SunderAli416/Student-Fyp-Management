@@ -74,5 +74,28 @@ namespace DbProjectFinal
             }
             Connection.CloseConnection();
         }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            ((Form)this.TopLevelControl).Hide();
+            Project project = new Project(pid);
+            project.ShowDialog();
+            
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Connection.MakeConnection();
+            string query = $"delete from students where roll_no='{rollNo}'";
+            var cmd = new MySqlCommand();
+            cmd.CommandText = query;
+            cmd.Connection = Connection.conn;
+            cmd.ExecuteNonQuery();
+            ((Form)this.TopLevelControl).Hide();
+            Student student = new Student();
+            student.ShowDialog();
+
+            Connection.CloseConnection();
+        }
     }
 }

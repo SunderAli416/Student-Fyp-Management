@@ -12,8 +12,15 @@ namespace DbProjectFinal
 {
     public partial class Student : Form
     {
+        string pid;
         public Student()
         {
+            this.pid = "";
+            InitializeComponent();
+        }
+        public Student(string pid)
+        {
+            this.pid = pid;
             InitializeComponent();
         }
 
@@ -45,7 +52,15 @@ namespace DbProjectFinal
         private void StudentAdd_Load(object sender, EventArgs e)
         {
             Connection.MakeConnection();
-            string query = "Select * from students;";
+            string query;
+            if (pid == "")
+            {
+                query = "select * from students;";
+            }
+            else
+            {
+                query = $"select * from students where pid='{pid}';";
+            }
             var cmd = new MySqlCommand(query, Connection.conn);
             MySqlDataReader result = cmd.ExecuteReader();
             int count = 0;

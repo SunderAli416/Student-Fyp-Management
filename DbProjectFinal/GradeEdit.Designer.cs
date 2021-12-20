@@ -194,6 +194,7 @@ namespace DbProjectFinal
             this.bunifuImageButton2.WaitOnLoad = false;
             this.bunifuImageButton2.Zoom = 20;
             this.bunifuImageButton2.ZoomSpeed = 10;
+            this.bunifuImageButton2.Click += new System.EventHandler(this.bunifuImageButton2_Click);
             // 
             // bunifuImageButton1
             // 
@@ -494,6 +495,7 @@ namespace DbProjectFinal
             // 
             this.bunifuLabel1.AllowParentOverrides = false;
             this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bunifuLabel1.Location = new System.Drawing.Point(22, 286);
@@ -570,6 +572,7 @@ namespace DbProjectFinal
             this.Controls.Add(this.grade1Input);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GradeEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GradeEdit";
             this.Load += new System.EventHandler(this.GradeEdit_Load);
             this.ResumeLayout(false);

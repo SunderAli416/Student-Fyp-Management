@@ -93,6 +93,7 @@ namespace DbProjectFinal
             this.guna2Button2.Size = new System.Drawing.Size(16, 19);
             this.guna2Button2.TabIndex = 46;
             this.guna2Button2.Text = "Add Details";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button1
             // 

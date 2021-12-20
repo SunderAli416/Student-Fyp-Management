@@ -65,6 +65,7 @@ namespace DbProjectFinal
             this.Hide();
             Meeting meeting = new Meeting();
             meeting.ShowDialog();
+            
         }
 
         private void bunifuButton1_Click(object sender, EventArgs e)

@@ -59,5 +59,12 @@ namespace DbProjectFinal
             External external = new External();
             external.ShowDialog();
         }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            External form = new External();
+            form.ShowDialog();
+        }
     }
 }

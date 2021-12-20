@@ -65,5 +65,12 @@ namespace DbProjectFinal
             student.ShowDialog();
             Connection.CloseConnection();
         }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Student form = new Student();
+            form.ShowDialog();
+        }
     }
 }

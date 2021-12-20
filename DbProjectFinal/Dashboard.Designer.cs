@@ -35,7 +35,6 @@ namespace DbProjectFinal
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuImageButton1 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton2 = new Bunifu.UI.WinForms.BunifuImageButton();
@@ -157,29 +156,6 @@ namespace DbProjectFinal
             this.guna2Button6.Text = "Meetings";
             this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
             // 
-            // guna2Button7
-            // 
-            this.guna2Button7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button7.BorderRadius = 22;
-            this.guna2Button7.CheckedState.Parent = this.guna2Button7;
-            this.guna2Button7.CustomImages.Parent = this.guna2Button7;
-            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button7.DisabledState.Parent = this.guna2Button7;
-            this.guna2Button7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(124)))), ((int)(((byte)(188)))));
-            this.guna2Button7.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button7.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.guna2Button7.HoverState.Parent = this.guna2Button7;
-            this.guna2Button7.Location = new System.Drawing.Point(139, 488);
-            this.guna2Button7.Name = "guna2Button7";
-            this.guna2Button7.ShadowDecoration.Parent = this.guna2Button7;
-            this.guna2Button7.Size = new System.Drawing.Size(403, 38);
-            this.guna2Button7.TabIndex = 6;
-            this.guna2Button7.Text = "Back";
-            this.guna2Button7.Click += new System.EventHandler(this.guna2Button7_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -292,7 +268,6 @@ namespace DbProjectFinal
             this.Controls.Add(this.bunifuImageButton2);
             this.Controls.Add(this.bunifuImageButton1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2Button7);
             this.Controls.Add(this.guna2Button6);
             this.Controls.Add(this.guna2Button4);
             this.Controls.Add(this.guna2Button3);
@@ -300,6 +275,7 @@ namespace DbProjectFinal
             this.Controls.Add(this.guna2Button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.ResumeLayout(false);
@@ -314,7 +290,6 @@ namespace DbProjectFinal
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button6;
-        private Guna.UI2.WinForms.Guna2Button guna2Button7;
         private System.Windows.Forms.Label label1;
         private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton1;
         private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton2;

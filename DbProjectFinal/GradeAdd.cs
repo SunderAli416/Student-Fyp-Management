@@ -37,5 +37,12 @@ namespace DbProjectFinal
             Student student = new Student();
             student.ShowDialog();
         }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Student form = new Student();
+            form.ShowDialog();
+        }
     }
 }

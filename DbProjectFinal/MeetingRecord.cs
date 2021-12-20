@@ -14,6 +14,21 @@ namespace DbProjectFinal
     {
         string mid, date, start, end, venue, pid, juryid;
 
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Connection.MakeConnection();
+            string query = $"delete from meetings where meeting_id='{mid}'";
+            var cmd = new MySqlCommand();
+            cmd.CommandText = query;
+            cmd.Connection = Connection.conn;
+            cmd.ExecuteNonQuery();
+            ((Form)this.TopLevelControl).Hide();
+            Meeting student = new Meeting();
+            student.ShowDialog();
+
+            Connection.CloseConnection();
+        }
+
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             ((Form)this.TopLevelControl).Hide();

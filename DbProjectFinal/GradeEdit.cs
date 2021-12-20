@@ -39,7 +39,25 @@ namespace DbProjectFinal
 
         private string gradeCalc(int mark1,int mark2)
         {
-            return "A1";
+            int sum = mark1 + mark2;
+            float avg = (float)sum / 2;
+            if (avg < 5)
+                return "F";
+            else if (avg >= 5 && avg < 6)
+                return "D";
+            else if (avg >= 6 && avg < 7)
+                return "C";
+            else if (avg >= 7 && avg < 8)
+                return "B";
+            else if (avg >= 8 && avg < 9)
+                return "A";
+            else if (avg >= 9 && avg <= 10)
+                return "A+";
+            else
+            {
+                return "Invalid";
+            }
+
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -65,6 +83,13 @@ namespace DbProjectFinal
             this.Hide();
             Student student = new Student();
             student.ShowDialog();
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Student form = new Student();
+            form.ShowDialog();
         }
     }
 }

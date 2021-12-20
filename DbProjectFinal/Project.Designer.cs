@@ -76,7 +76,7 @@ namespace DbProjectFinal
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 37);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(704, 487);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(777, 487);
             this.flowLayoutPanel1.TabIndex = 30;
             // 
             // textBox1
@@ -87,7 +87,7 @@ namespace DbProjectFinal
             this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
             this.textBox1.Location = new System.Drawing.Point(587, 10);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 21);
+            this.textBox1.Size = new System.Drawing.Size(208, 21);
             this.textBox1.TabIndex = 29;
             this.textBox1.Text = "-";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -361,7 +361,7 @@ namespace DbProjectFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 568);
+            this.ClientSize = new System.Drawing.Size(809, 568);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.bunifuButton1);
             this.Controls.Add(this.searchInput);
@@ -375,6 +375,7 @@ namespace DbProjectFinal
             this.Controls.Add(this.textBoxasd1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Project";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project";
             this.Load += new System.EventHandler(this.Project_Load);
             this.ResumeLayout(false);

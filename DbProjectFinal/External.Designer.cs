@@ -420,6 +420,7 @@ namespace DbProjectFinal
             this.Controls.Add(this.textBoxasd1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "External";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "External";
             this.Load += new System.EventHandler(this.External_Load);
             this.ResumeLayout(false);

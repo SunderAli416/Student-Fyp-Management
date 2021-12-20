@@ -25,6 +25,13 @@ namespace DbProjectFinal
 
         }
 
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Meeting form = new Meeting();
+            form.ShowDialog();
+        }
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             Connection.MakeConnection();

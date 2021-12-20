@@ -352,6 +352,7 @@ namespace DbProjectFinal
             this.bunifuImageButton2.WaitOnLoad = false;
             this.bunifuImageButton2.Zoom = 20;
             this.bunifuImageButton2.ZoomSpeed = 10;
+            this.bunifuImageButton2.Click += new System.EventHandler(this.bunifuImageButton2_Click);
             // 
             // bunifuImageButton1
             // 
@@ -715,6 +716,7 @@ namespace DbProjectFinal
             this.Controls.Add(this.emailInput);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ExternalAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExternalAdd";
             this.ResumeLayout(false);
             this.PerformLayout();

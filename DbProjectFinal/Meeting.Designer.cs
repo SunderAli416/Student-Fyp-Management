@@ -420,6 +420,7 @@ namespace DbProjectFinal
             this.Controls.Add(this.textBoxasd1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Meeting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Meeting";
             this.Load += new System.EventHandler(this.Meeting_Load);
             this.ResumeLayout(false);

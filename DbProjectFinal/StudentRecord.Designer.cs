@@ -37,6 +37,7 @@ namespace DbProjectFinal
             this.fnameLabel = new System.Windows.Forms.Label();
             this.rollLabel = new System.Windows.Forms.Label();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // guna2Button2
@@ -60,6 +61,7 @@ namespace DbProjectFinal
             this.guna2Button2.Size = new System.Drawing.Size(16, 19);
             this.guna2Button2.TabIndex = 28;
             this.guna2Button2.Text = "Add Details";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button1
             // 
@@ -154,10 +156,31 @@ namespace DbProjectFinal
             this.guna2Button3.Text = "Grade";
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
+            // guna2Button4
+            // 
+            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
+            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
+            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button4.DisabledState.Parent = this.guna2Button4;
+            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button4.ForeColor = System.Drawing.Color.White;
+            this.guna2Button4.HoverState.Parent = this.guna2Button4;
+            this.guna2Button4.Location = new System.Drawing.Point(816, 11);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
+            this.guna2Button4.Size = new System.Drawing.Size(64, 19);
+            this.guna2Button4.TabIndex = 30;
+            this.guna2Button4.Text = "Project";
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            // 
             // StudentRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.guna2Button4);
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.guna2Button1);
@@ -167,7 +190,7 @@ namespace DbProjectFinal
             this.Controls.Add(this.fnameLabel);
             this.Controls.Add(this.rollLabel);
             this.Name = "StudentRecord";
-            this.Size = new System.Drawing.Size(826, 40);
+            this.Size = new System.Drawing.Size(897, 40);
             this.Load += new System.EventHandler(this.StudentRecord_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -184,5 +207,6 @@ namespace DbProjectFinal
         private System.Windows.Forms.Label fnameLabel;
         private System.Windows.Forms.Label rollLabel;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button guna2Button4;
     }
 }

@@ -7,12 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 namespace DbProjectFinal
 {
     public partial class JuryRecord : UserControl
     {
         string jid, fac1, fac2, fac3, ext1, ext2;
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Connection.MakeConnection();
+            string query = $"delete from jury where jury_id='{jid}'";
+            var cmd = new MySqlCommand();
+            cmd.CommandText = query;
+            cmd.Connection = Connection.conn;
+            cmd.ExecuteNonQuery();
+            ((Form)this.TopLevelControl).Hide();
+            Jury student = new Jury();
+            student.ShowDialog();
+
+            Connection.CloseConnection();
+        }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {

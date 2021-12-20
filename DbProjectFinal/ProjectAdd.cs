@@ -51,5 +51,12 @@ namespace DbProjectFinal
             Project project = new Project();
             project.ShowDialog();
         }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Project form = new Project();
+            form.ShowDialog();
+        }
     }
 }

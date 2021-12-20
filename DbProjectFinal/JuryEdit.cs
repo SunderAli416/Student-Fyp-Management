@@ -14,6 +14,13 @@ namespace DbProjectFinal
     {
         string jid, fac1, fac2, fac3, ext1, ext2;
 
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Jury form = new Jury();
+            form.ShowDialog();
+        }
+
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             string fac1 = fac1Button.Text;

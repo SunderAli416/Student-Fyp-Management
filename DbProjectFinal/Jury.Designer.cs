@@ -405,6 +405,7 @@ namespace DbProjectFinal
             this.Controls.Add(this.textBoxasd1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Jury";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Jury";
             this.Load += new System.EventHandler(this.Jury_Load);
             this.ResumeLayout(false);

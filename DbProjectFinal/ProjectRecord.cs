@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 namespace DbProjectFinal
 {
     public partial class ProjectRecord : UserControl
@@ -47,6 +47,33 @@ namespace DbProjectFinal
         private void bunifuButton21_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Connection.MakeConnection();
+            string query = $"delete from projects where pid='{pid}'";
+            var cmd = new MySqlCommand();
+            cmd.CommandText = query;
+            cmd.Connection = Connection.conn;
+            cmd.ExecuteNonQuery();
+            ((Form)this.TopLevelControl).Hide();
+            Project student = new Project();
+            student.ShowDialog();
+
+            Connection.CloseConnection();
+        }
+
+        private void cosupLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton21_Click_1(object sender, EventArgs e)
+        {
+            ((Form)this.TopLevelControl).Hide();
+            Student student = new Student(pid);
+            student.ShowDialog();
         }
     }
 }

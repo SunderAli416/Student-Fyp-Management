@@ -39,5 +39,12 @@ namespace DbProjectFinal
 
             Connection.CloseConnection();
         }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            External form = new External();
+            form.ShowDialog();
+        }
     }
 }
