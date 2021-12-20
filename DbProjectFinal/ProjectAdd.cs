@@ -25,7 +25,7 @@ namespace DbProjectFinal
             var result = cmd.ExecuteReader();
             while (result.Read())
             {
-                chooseButton.Items.Add(result.GetString(2));
+                chooseButton.Items.Add(result.GetString(0));
             }
             Connection.CloseConnection();
         }

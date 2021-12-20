@@ -41,6 +41,7 @@ namespace DbProjectFinal
             {
                 facIds.Add(result.GetString(1));
                 juryIds.Add(result.GetString(0));
+                Console.WriteLine(result.GetString(0));
             }
             Connection.CloseConnection();
             int i = 0;
@@ -48,7 +49,7 @@ namespace DbProjectFinal
             {
                 string name;
                 Connection.MakeConnection();
-                query = $"Select * from faculty where code='{id}';";
+                query = $"Select * from faculty where e_id='{id}';";
                 cmd = new MySqlCommand(query, Connection.conn);
                 result = cmd.ExecuteReader();
                 
