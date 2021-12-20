@@ -36,25 +36,33 @@ namespace DbProjectFinal
             {
                 if (validateSupervisor(chooseButton.Text))
                 {
-                    Connection.MakeConnection();
-                    string pid = pidInput.Text;
-                    string title = titleInput.Text;
-                    string semester = semesterInput.Text;
-                    string cosup = cosupInput.Text;
+                    try
+                    {
+                        Connection.MakeConnection();
+                        string pid = pidInput.Text;
+                        string title = titleInput.Text;
+                        string semester = semesterInput.Text;
+                        string cosup = cosupInput.Text;
 
-                    var cmd = new MySqlCommand();
-                    string query = $"INSERT into projects values ('{pid}','{title}','{semester}','{cosup}');";
-                    cmd.Connection = Connection.conn;
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();
-                    query = $"INSERT into supervisor values ('{chooseButton.Text}','{pid}');";
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();
-                    Connection.CloseConnection();
+                        var cmd = new MySqlCommand();
+                        string query = $"INSERT into projects values ('{pid}','{title}','{semester}','{cosup}');";
+                        cmd.Connection = Connection.conn;
+                        cmd.CommandText = query;
+                        cmd.ExecuteNonQuery();
+                        query = $"INSERT into supervisor values ('{chooseButton.Text}','{pid}');";
+                        cmd.CommandText = query;
+                        cmd.ExecuteNonQuery();
+                        Connection.CloseConnection();
 
-                    this.Hide();
-                    Project project = new Project();
-                    project.ShowDialog();
+                        this.Hide();
+                        Project project = new Project();
+                        project.ShowDialog();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("A project with this project id already exists");
+                    }
+                    
 
                 }
                 else

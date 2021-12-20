@@ -68,23 +68,31 @@ namespace DbProjectFinal
             {
                 if (validateSupervisor(chooseButton.Text))
                 {
-                    Connection.MakeConnection();
-                    var cmd = new MySqlCommand();
-                    cmd.Connection = Connection.conn;
-                    string query = $"update projects set pid='{pid1}',title='{title1}',semester='{semester1}',cosupervisor='{cosup1}' where pid='{pid}';";
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();
-                    Connection.CloseConnection();
-                    Connection.MakeConnection();
-                    string supervisor = chooseButton.Text;
-                    query = $"update supervisor set s_id='{supervisor}' where pid='{pid}'";
-                    cmd.Connection = Connection.conn;
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();
-                    Connection.CloseConnection();
-                    this.Hide();
-                    Project project = new Project();
-                    project.ShowDialog();
+                    try
+                    {
+                        Connection.MakeConnection();
+                        var cmd = new MySqlCommand();
+                        cmd.Connection = Connection.conn;
+                        string query = $"update projects set pid='{pid1}',title='{title1}',semester='{semester1}',cosupervisor='{cosup1}' where pid='{pid}';";
+                        cmd.CommandText = query;
+                        cmd.ExecuteNonQuery();
+                        Connection.CloseConnection();
+                        Connection.MakeConnection();
+                        string supervisor = chooseButton.Text;
+                        query = $"update supervisor set s_id='{supervisor}' where pid='{pid}'";
+                        cmd.Connection = Connection.conn;
+                        cmd.CommandText = query;
+                        cmd.ExecuteNonQuery();
+                        Connection.CloseConnection();
+                        this.Hide();
+                        Project project = new Project();
+                        project.ShowDialog();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("A project with this project id already exists");
+                    }
+                    
                 }
                 else
                 {

@@ -38,7 +38,25 @@ namespace DbProjectFinal
             while (result.Read())
             {
                 string mystr = result.GetValue(1).ToString();
-                meeting[i] = new MeetingRecord(result.GetString(0), result.GetValue(1).ToString().Substring(0,mystr.IndexOf(' ')), result.GetString(2), result.GetString(3), result.GetString(4), result.GetString(5), result.GetString(6));
+                string projectid;
+                string juryid;
+                try
+                {
+                    projectid = result.GetString(5);
+                }
+                catch
+                {
+                    projectid = "-";
+                }
+                try
+                {
+                    juryid = result.GetString(6);
+                }
+                catch
+                {
+                    juryid = "-";
+                }
+                meeting[i] = new MeetingRecord(result.GetString(0), result.GetValue(1).ToString().Substring(0,mystr.IndexOf(' ')), result.GetString(2), result.GetString(3), result.GetString(4), projectid, juryid);
 
                 flowLayoutPanel1.Controls.Add(meeting[i]);
                 i++;
@@ -97,6 +115,11 @@ namespace DbProjectFinal
                 }
                 Connection.CloseConnection();
             }
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

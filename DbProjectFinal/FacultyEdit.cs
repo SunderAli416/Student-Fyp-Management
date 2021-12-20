@@ -54,15 +54,23 @@ namespace DbProjectFinal
             string status=statusInput.Text;
             if (validate(eid1, email, code, title, fname, lname, designation, status))
             {
-                string query = $"update faculty set e_id='{eid1}',email='{email}',code='{code}',title='{title}',f_name='{fname}',l_name='{lname}',designation='{designation}',status='{status}' where e_id='{eid}';";
-                var cmd = new MySqlCommand();
-                cmd.Connection = Connection.conn;
-                cmd.CommandText = query;
-                cmd.ExecuteNonQuery();
-                this.Hide();
-                Faculty faculty = new Faculty();
-                faculty.ShowDialog();
-                Connection.CloseConnection();
+                try
+                {
+                    string query = $"update faculty set e_id='{eid1}',email='{email}',code='{code}',title='{title}',f_name='{fname}',l_name='{lname}',designation='{designation}',status='{status}' where e_id='{eid}';";
+                    var cmd = new MySqlCommand();
+                    cmd.Connection = Connection.conn;
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                    this.Hide();
+                    Faculty faculty = new Faculty();
+                    faculty.ShowDialog();
+                    Connection.CloseConnection();
+                }
+                catch
+                {
+                    MessageBox.Show("A record with this employee id or supervisor code already exists");
+                }
+                
             }
             else
             {

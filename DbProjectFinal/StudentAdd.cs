@@ -73,15 +73,23 @@ namespace DbProjectFinal
             string pid = chooseButton.Text;
             if (validate(rollNo, fname, lname, sectionText, chooseButton.Text))
             {
-                var cmd = new MySqlCommand();
-                cmd.Connection = Connection.conn;
-                string query = $"Insert into students values ('{rollNo}','{fname}','{lname}','{section}','{pid}');";
-                cmd.CommandText = query;
-                cmd.ExecuteNonQuery();
-                Connection.CloseConnection();
-                this.Hide();
-                Student students = new Student();
-                students.ShowDialog();
+                try
+                {
+                    var cmd = new MySqlCommand();
+                    cmd.Connection = Connection.conn;
+                    string query = $"Insert into students values ('{rollNo}','{fname}','{lname}','{section}','{pid}');";
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                    Connection.CloseConnection();
+                    this.Hide();
+                    Student students = new Student();
+                    students.ShowDialog();
+                }
+                catch
+                {
+                    MessageBox.Show("A student with this roll number already exists");
+                }
+                
             }
             else
             {

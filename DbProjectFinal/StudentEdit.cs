@@ -56,16 +56,24 @@ namespace DbProjectFinal
             string pid = chooseButton.Text;
             if (validate(rollNo, fname, lname, section, pid))
             {
-                string query = $"UPDATE students set roll_no='{rollNo}',f_name='{fname}',l_name='{lname}',section='{section}',pid='{pid}' where roll_no='{roll}';";
-                Connection.MakeConnection();
-                var cmd = new MySqlCommand();
-                cmd.CommandText = query;
-                cmd.Connection = Connection.conn;
-                cmd.ExecuteNonQuery();
-                this.Hide();
-                Student student = new Student();
-                student.ShowDialog();
-                Connection.CloseConnection();
+                try
+                {
+                    string query = $"UPDATE students set roll_no='{rollNo}',f_name='{fname}',l_name='{lname}',section='{section}',pid='{pid}' where roll_no='{roll}';";
+                    Connection.MakeConnection();
+                    var cmd = new MySqlCommand();
+                    cmd.CommandText = query;
+                    cmd.Connection = Connection.conn;
+                    cmd.ExecuteNonQuery();
+                    this.Hide();
+                    Student student = new Student();
+                    student.ShowDialog();
+                    Connection.CloseConnection();
+                }
+                catch
+                {
+                    MessageBox.Show("A student with this roll number already exists");
+                }
+                
             }
             else
             {

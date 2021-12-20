@@ -32,14 +32,22 @@ namespace DbProjectFinal
             var cmd = new MySqlCommand();
             cmd.Connection = Connection.conn;
             if (validate(eid, email, code, title, fname, lname, designation, status)){
-                string query = $"INSERT into faculty values ('{eid}','{email}','{code}','{title}','{fname}','{lname}','{designation}','{status}');";
-                cmd.CommandText = query;
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    string query = $"INSERT into faculty values ('{eid}','{email}','{code}','{title}','{fname}','{lname}','{designation}','{status}');";
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
 
-                Connection.CloseConnection();
-                this.Hide();
-                Faculty faculty = new Faculty();
-                faculty.ShowDialog();
+                    Connection.CloseConnection();
+                    this.Hide();
+                    Faculty faculty = new Faculty();
+                    faculty.ShowDialog();
+                }
+                catch
+                {
+                    MessageBox.Show("A record with this employee id or supervisor code already exists");
+                }
+                
             }
             else
             {

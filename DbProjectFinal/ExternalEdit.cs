@@ -53,13 +53,21 @@ namespace DbProjectFinal
             cmd.Connection = Connection.conn;
             if (validate(name1, email1, phone1, address1, company1, semester1, account1))
             {
-                string query = $"update externals set name='{name1}',email='{email1}',phone_no='{phone1}',address='{address1}',company='{company1}',semester='{semester1}',account_no='{account1}' where email='{email}';";
-                cmd.CommandText = query;
-                cmd.ExecuteNonQuery();
-                Connection.CloseConnection();
-                this.Hide();
-                External external = new External();
-                external.ShowDialog();
+                try
+                {
+                    string query = $"update externals set name='{name1}',email='{email1}',phone_no='{phone1}',address='{address1}',company='{company1}',semester='{semester1}',account_no='{account1}' where email='{email}';";
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                    Connection.CloseConnection();
+                    this.Hide();
+                    External external = new External();
+                    external.ShowDialog();
+                }
+                catch
+                {
+                    MessageBox.Show("Email Already exists");
+                }
+               
             }
             else
             {

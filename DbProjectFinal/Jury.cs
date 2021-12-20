@@ -44,7 +44,15 @@ namespace DbProjectFinal
                 string jid, fac1, fac2, fac3, ext1, ext2;
                 jid = result.GetString(0);
                 jidl.Add(jid);
-                fac1 = result.GetString(1);
+                try
+                {
+                    fac1 = result.GetString(1);
+                }
+                catch
+                {
+                    fac1 = "-";
+                }
+                
                 fac1l.Add(fac1);
                 try{
                     fac2 = result.GetString(2);

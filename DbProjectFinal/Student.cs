@@ -84,7 +84,15 @@ namespace DbProjectFinal
                 students[i].fname = result.GetString(1);
                 students[i].lname = result.GetString(2);
                 students[i].section += result.GetChar(3);
-                students[i].pid = result.GetString(4);
+                try
+                {
+                    students[i].pid = result.GetString(4);
+                }
+                catch
+                {
+                    students[i].pid = "-";
+                }
+                
                 flowLayoutPanel1.Controls.Add(students[i]);
                 i++;
             }

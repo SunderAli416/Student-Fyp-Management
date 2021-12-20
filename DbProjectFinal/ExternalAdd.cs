@@ -31,12 +31,19 @@ namespace DbProjectFinal
             string account = accountInput.Text;
             if (validate(name, email, phone, address, company, semester, account))
             {
-                string query = $"insert into externals values ('{name}','{email}','{phone}','{address}','{company}','{semester}','{account}');";
-                cmd.CommandText = query;
-                cmd.ExecuteNonQuery();
-                this.Hide();
-                External external = new External();
-                external.ShowDialog();
+                try {
+                    string query = $"insert into externals values ('{name}','{email}','{phone}','{address}','{company}','{semester}','{account}');";
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                    this.Hide();
+                    External external = new External();
+                    external.ShowDialog();
+                }
+                catch
+                {
+                    MessageBox.Show("Email already exists");
+                }
+                
             }
             else
             {
